@@ -72,7 +72,9 @@ static const struct luaL_Reg routines [] = {
 int SYS_DLLEXPORT luaopen_libsys(lua_State *L)
 {
   lua_newtable(L);
-#if LUA_VERSION_NUM == 501
+  lua_pushvalue(L, -1);
+  lua_setglobal(L, "sys");
+#if LUA_VERSION_NUM <= 501
   luaL_register(L, NULL, routines);
 #else
   luaL_setfuncs(L, routines, 0);

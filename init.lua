@@ -6,16 +6,18 @@ local os = require 'os'
 local io = require 'io'
 local paths = require 'paths'
 
-sys = {}
+--[[ static library don't need dynamic load symbols]]
+--sys = {}
 
 --------------------------------------------------------------------------------
 -- load all functions from lib
 --------------------------------------------------------------------------------
-local _lib = require 'libsys'
+--[[ for static library don't need dynamic load symbols ]]
+--[[local _lib = require 'libsys'
 for k,v in pairs(_lib) do
    sys[k] = v
 end
-
+]]
 --------------------------------------------------------------------------------
 -- tic/toc (matlab-like) timers
 --------------------------------------------------------------------------------
